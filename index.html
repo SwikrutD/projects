@@ -4,18 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects - Swikrut Dhanorkar</title>
-<meta name="description" content="Everything Swikrut Dhanorkar has built: full-stack apps, ML systems, games, desktop tools, and small utilities.">
+<meta name="description" content="Apps, games, tools and experiments built by Swikrut Dhanorkar, with source code, READMEs and downloads.">
 <meta property="og:title" content="Projects - Swikrut Dhanorkar">
-<meta property="og:description" content="Everything I've built: apps, ML systems, games, tools and small utilities.">
+<meta property="og:description" content="Apps, games, tools and experiments, with source code, READMEs and downloads.">
 <meta property="og:url" content="https://projects.swikrut.com/">
+<meta name="theme-color" content="#0a0d14">
 <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- Shared design system from the main site, so both stay in sync -->
-<link href="https://swikrut.com/style.css" rel="stylesheet">
-<link href="archive.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
 
 <script src="https://kit.fontawesome.com/b6a44dc56a.js" crossorigin="anonymous"></script>
 
@@ -30,51 +29,62 @@
 </head>
 <body>
 
-<div class="grid-bg" aria-hidden="true"></div>
-<div class="scanline" aria-hidden="true"></div>
-
-<header id="site-header">
-  <a href="https://swikrut.com" class="logo-mark">
-    <img src="./assets/logo.png" alt="Swikrut Dhanorkar logo">
-  </a>
-  <nav class="archive-nav" aria-label="Primary">
-    <a href="https://swikrut.com">home</a>
-    <a href="https://swikrut.com/#contact">contact</a>
-    <a href="https://github.com/SwikrutD" target="_blank" rel="noopener">github</a>
-  </nav>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="#/" class="brand" aria-label="All projects">
+      <img src="./assets/logo.png" alt="">
+      <span>projects<em>.swikrut.com</em></span>
+    </a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="https://swikrut.com"><i class="fa-solid fa-user"></i><span>About me</span></a>
+      <a href="https://github.com/SwikrutD" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
+    </nav>
+  </div>
 </header>
 
-<main>
-  <section class="archive-hero">
-    <div class="eyebrow"><span class="status-dot"></span>projects.swikrut.com</div>
-    <h1>everything i've <span>built</span></h1>
-    <p class="role-line">Apps, ML systems, games, desktop tools and small utilities: the full list, including the ones too small for the homepage.</p>
-    <div class="stats" id="stats"></div>
-  </section>
-
-  <section class="archive-body">
-    <div class="toolbar dash-panel" data-title="QUERY: /projects">
-      <label class="search">
-        <span aria-hidden="true">$ grep</span>
-        <input id="search" type="search" placeholder="search name, stack, description..." autocomplete="off" aria-label="Search projects">
-      </label>
-      <div class="chip-row" id="status-chips" role="group" aria-label="Filter by status"></div>
-      <div class="chip-row tags" id="tag-chips" role="group" aria-label="Filter by tag"></div>
+<main id="app">
+  <!-- ============ catalogue view ============ -->
+  <section id="view-list">
+    <div class="wrap hero">
+      <div class="hero-copy">
+        <p class="kicker">Built by Swikrut Dhanorkar</p>
+        <h1>Things I've made.</h1>
+        <p class="lede">Apps, games, tools and experiments. Each one has its source code, README and, where there is one, a download.</p>
+        <div class="hero-stats" id="stats"></div>
+      </div>
+      <a class="spotlight" id="spotlight" href="#/"></a>
     </div>
 
-    <p class="result-count" id="result-count" aria-live="polite"></p>
-    <div class="archive-grid" id="grid"></div>
-    <p class="empty" id="empty" hidden>// no projects match that query</p>
+    <div class="wrap">
+      <div class="controls">
+        <div class="tabs" id="tabs" role="tablist" aria-label="Categories"></div>
+        <label class="search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="search" type="search" placeholder="Search projects" autocomplete="off" aria-label="Search projects">
+          <kbd>/</kbd>
+        </label>
+      </div>
+
+      <div id="sections"></div>
+      <p class="empty" id="empty" hidden>Nothing matches that search.</p>
+    </div>
   </section>
+
+  <!-- ============ project page ============ -->
+  <section id="view-detail" hidden></section>
 </main>
 
-<footer class="archive-footer">
-  <a href="https://swikrut.com">~/swikrut.com</a>
-  <span>&copy; <span id="year"></span> Swikrut Dhanorkar</span>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>&copy; <span id="year"></span> Swikrut Dhanorkar</span>
+    <span><a href="https://swikrut.com">swikrut.com</a> &middot; <a href="https://github.com/SwikrutD" target="_blank" rel="noopener">github.com/SwikrutD</a></span>
+  </div>
 </footer>
 
-<div id="toast" role="status"></div>
+<div id="toast" role="status" aria-live="polite"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
 <script src="projects.js"></script>
 <script src="app.js"></script>
 </body>
