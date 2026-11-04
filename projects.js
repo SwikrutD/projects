@@ -84,7 +84,7 @@ window.PROJECTS = [
     tagline: "Gentle neck and shoulder break reminders with a 3D mannequin.",
     about: "An offline tray utility that pops up a small bottom-right window with a native WPF 3D mannequin, instructions and a live countdown.",
     category: "desktop", platform: "Windows", tech: ["C#", ".NET 8", "WPF 3D"],
-    repo: "SwikrutD/NeckFlow", private: true, releases: true,
+    repo: "SwikrutD/NeckFlow", releases: true,
     icon: "fa-solid fa-person-walking", accent: "#14b8a6"
   },
   {
