@@ -10,7 +10,8 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const gh = (p) => (p.repo ? `https://github.com/${p.repo}` : null);
   const isPublic = (p) => p.repo && !p.private;
-  const hasDownloads = (p) => isPublic(p) && p.releases;
+  const hasReleases = (p) => isPublic(p) && p.releases;
+  const hasDownloads = (p) => hasReleases(p) || !!p.download;
 
   const state = { cat: "all", q: "" };
 
@@ -169,13 +170,14 @@
   function renderDetail(p) {
     const cat = CATS[p.category] || {};
     const actions = [];
-    if (hasDownloads(p)) actions.push(`<a class="btn primary" id="dl-btn" href="${esc(gh(p))}/releases/latest"><i class="fa-solid fa-download"></i>Download</a>`);
-    if (p.demo) actions.push(`<a class="btn ${hasDownloads(p) ? "live" : "primary"}" href="${esc(p.demo)}" target="_blank" rel="noopener"><i class="fa-solid fa-play"></i>Open live</a>`);
+    if (hasReleases(p)) actions.push(`<a class="btn primary" id="dl-btn" href="${esc(gh(p))}/releases/latest"><i class="fa-solid fa-download"></i>Download</a>`);
+    if (p.demo) actions.push(`<a class="btn ${hasReleases(p) ? "live" : "primary"}" href="${esc(p.demo)}" target="_blank" rel="noopener"><i class="fa-solid fa-play"></i>${esc(p.demoLabel || "Open live")}</a>`);
+    if (p.download && p.download !== p.demo) actions.push(`<a class="btn" href="${esc(p.download)}" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i>Download</a>`);
     if (isPublic(p)) actions.push(`<a class="btn" href="${esc(gh(p))}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Source code</a>`);
     actions.push(`<button class="btn" type="button" id="share-btn"><i class="fa-solid fa-link"></i>Share</button>`);
 
     const links = [
-      p.demo ? `<dt>Live</dt><dd><a href="${esc(p.demo)}" target="_blank" rel="noopener">${esc(p.demo.replace(/^https?:\/\//, ""))}</a></dd>` : "",
+      p.demo ? `<dt>${p.demoLabel ? "Play" : "Live"}</dt><dd><a href="${esc(p.demo)}" target="_blank" rel="noopener">${esc(p.demo.replace(/^https?:\/\//, ""))}</a></dd>` : "",
       isPublic(p) ? `<dt>Repo</dt><dd><a href="${esc(gh(p))}" target="_blank" rel="noopener">${esc(p.repo)}</a></dd>` : "",
       `<dt>Platform</dt><dd>${esc(p.platform)}</dd>`,
       `<dt>Category</dt><dd>${esc(cat.label || "")}</dd>`
@@ -206,7 +208,7 @@
               : `<div class="readme-head"><span><i class="fa-solid fa-circle-info"></i> About</span></div><div class="md"><p>${esc(p.about)}</p></div>`}
           </article>
           <aside class="side">
-            ${hasDownloads(p) ? `<div class="panel" id="release-box"><h4>Download</h4><div class="skeleton"></div><div class="skeleton" style="width:60%"></div></div>` : ""}
+            ${hasReleases(p) ? `<div class="panel" id="release-box"><h4>Download</h4><div class="skeleton"></div><div class="skeleton" style="width:60%"></div></div>` : ""}
             ${isPublic(p) ? `<div class="panel"><h4>About</h4><p>${esc(p.about)}</p></div>` : ""}
             <div class="panel"><h4>Built with</h4><div class="chips">${(p.tech || []).map((t) => `<span>${esc(t)}</span>`).join("")}</div></div>
             <div class="panel"><h4>Details</h4><dl class="kv">${links}</dl></div>
@@ -225,7 +227,7 @@
     });
 
     if (isPublic(p)) loadReadme(p);
-    if (hasDownloads(p)) loadRelease(p);
+    if (hasReleases(p)) loadRelease(p);
   }
 
   // ------------------------------------------------------------ routing

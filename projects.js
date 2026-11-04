@@ -11,7 +11,8 @@
    tech       stack chips
    repo       "owner/name" on GitHub, or null
    private    true if the repo is private (no README/GitHub button shown)
-   demo       URL of a live version, if any
+   demo       URL of a live version, if any (demoLabel overrides the button text)
+   download   URL of an external download page (e.g. itch.io), used instead of GitHub Releases
    releases   true if downloads are published as GitHub Releases on `repo`
    badge      optional: "new" | "live" | "wip"
    icon       Font Awesome class for the generated cover
@@ -67,7 +68,7 @@ window.PROJECTS = [
     tagline: "Renames a movie and TV library into a layout Jellyfin reads without guessing.",
     about: "Scan, review every proposed change, approve, apply. Every run is journalled and can be reversed.",
     category: "desktop", platform: "Windows", tech: ["Python", "TMDb", "TVDB", "PyInstaller"],
-    repo: "SwikrutD/Endslate", private: true, releases: true,
+    repo: "SwikrutD/Endslate", releases: true,
     icon: "fa-solid fa-clapperboard", accent: "#eab308"
   },
   {
@@ -75,7 +76,7 @@ window.PROJECTS = [
     tagline: "ffmpeg through a window instead of a command line.",
     about: "Drop files in, pick a task, press Render. Convert, compress to a size target with real two-pass encodes, extract audio, and batch photo tasks, all from one queue.",
     category: "desktop", platform: "Windows", tech: ["Python", "PySide6", "ffmpeg"],
-    repo: "SwikrutD/FFMPEG-Forge", private: true, releases: true,
+    repo: "SwikrutD/FFMPEG-Forge", releases: true,
     icon: "fa-solid fa-wand-magic-sparkles", accent: "#22c55e"
   },
   {
@@ -149,7 +150,7 @@ window.PROJECTS = [
     tagline: "A lantern, fifteen minutes, and everything coming for you.",
     about: "A survivors-style action game: weapons fire on their own, you move and pick upgrades, and try to reach sunrise. Everything is drawn and synthesized at runtime, with full controller support.",
     category: "games", platform: "Browser, Windows, Linux", tech: ["JavaScript", "Canvas", "Web Audio", "Electron"],
-    repo: "SwikrutD/lulmenfall", private: true, releases: true,
+    repo: "SwikrutD/lumenfall", private: true, demo: "https://floodedrocket.itch.io/lumenfall", download: "https://floodedrocket.itch.io/lumenfall", demoLabel: "Play or download on itch.io",
     icon: "fa-solid fa-fire-flame-curved", accent: "#f59e0b", image: "assets/covers/lumenfall.webp"
   },
   {
@@ -165,7 +166,7 @@ window.PROJECTS = [
     tagline: "Multiplayer arcade: you're a baby black hole. Eat everything.",
     about: "Start pea-sized in a shared arena and swallow dust, asteroids, moons, planets and other players. Drop in, grow, get spaghettified.",
     category: "games", platform: "Browser", tech: ["TypeScript", "Canvas", "WebSockets", "Docker"],
-    repo: "SwikrutD/spaghettify", private: true, demo: "https://spaghettify.swikrut.com", badge: "live",
+    repo: "SwikrutD/spaghettify", demo: "https://spaghettify.swikrut.com", badge: "live",
     icon: "fa-solid fa-circle-half-stroke", accent: "#8b5cf6"
   },
   {
@@ -217,7 +218,7 @@ window.PROJECTS = [
     tagline: "End-to-end encrypted clipboard and file sync between your devices.",
     about: "Self-hosted, no accounts, no app store. AES-256-GCM encryption happens on the device before anything leaves it.",
     category: "web", platform: "Browser / PWA", tech: ["Node.js", "Socket.io", "Web Crypto API", "PWA"],
-    repo: "SwikrutD/clipsync", private: true, demo: "https://clipsync.swikrut.com", badge: "live",
+    repo: "SwikrutD/clipsync", demo: "https://clipsync.swikrut.com", badge: "live",
     icon: "fa-solid fa-clipboard", accent: "#38bdf8", image: "assets/covers/clipsync.webp"
   },
   {
@@ -233,7 +234,7 @@ window.PROJECTS = [
     tagline: "A self-hosted meal planner, shopping list and household hub.",
     about: "Save recipes, drag them onto a meal calendar, generate a shopping list, and share or print the plan. Also covers chores, events, pantry inventory and photos. Runs on your own machine and works offline.",
     category: "web", platform: "Self-hosted", tech: ["Next.js", "TypeScript", "SQLite", "Drizzle", "Docker"],
-    repo: "SwikrutD/meal-planner", private: true,
+    repo: "SwikrutD/meal-planner",
     icon: "fa-solid fa-utensils", accent: "#f97316"
   },
   {
