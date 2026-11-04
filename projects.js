@@ -37,7 +37,7 @@ window.PROJECTS = [
     about: "Listens only to the game's own audio, so the video never triggers itself. Spotify can be paused or ducked too. No injection or memory reading, just the Windows audio and media APIs, so it's safe with anti-cheat.",
     category: "desktop", platform: "Windows", tech: ["Python", "PySide6", "ONNX Runtime", "WinRT Media APIs"],
     repo: "SwikrutD/yt-game-pauser", releases: true, badge: "new",
-    icon: "fa-solid fa-circle-pause", accent: "#ef4444"
+    icon: "fa-solid fa-circle-pause", accent: "#ef4444", image: "assets/covers/yt-game-pauser.webp"
   },
   {
     slug: "erdle", featured: true, name: "ERDLE",
@@ -53,7 +53,7 @@ window.PROJECTS = [
     about: "Read, annotate, organize, edit, OCR, convert, protect and redact PDFs on your own machine, with no account, no telemetry and no cloud services.",
     category: "desktop", platform: "Windows", tech: ["Electron", "React", "TypeScript", "PDF.js"],
     repo: "SwikrutD/PaperForge", releases: true,
-    icon: "fa-solid fa-file-pdf", accent: "#f97316"
+    icon: "fa-solid fa-file-pdf", accent: "#f97316", image: "assets/covers/paperforge.webp"
   },
   {
     slug: "reelwright", name: "Reelwright",
@@ -61,7 +61,7 @@ window.PROJECTS = [
     about: "Story text goes in; out comes a narrated, word-timed captioned vertical video cut over a background clip, split into parts when it runs long. Optional YouTube upload and scheduling.",
     category: "desktop", platform: "Windows", tech: ["Python", "Tkinter", "faster-whisper", "ffmpeg", "YouTube API"],
     repo: "SwikrutD/Reelwright", releases: true,
-    icon: "fa-solid fa-film", accent: "#a855f7"
+    icon: "fa-solid fa-film", accent: "#a855f7", image: "assets/covers/reelwright.webp"
   },
   {
     slug: "endslate", name: "Endslate",
@@ -69,7 +69,7 @@ window.PROJECTS = [
     about: "Scan, review every proposed change, approve, apply. Every run is journalled and can be reversed.",
     category: "desktop", platform: "Windows", tech: ["Python", "TMDb", "TVDB", "PyInstaller"],
     repo: "SwikrutD/Endslate", releases: true,
-    icon: "fa-solid fa-clapperboard", accent: "#eab308"
+    icon: "fa-solid fa-clapperboard", accent: "#eab308", image: "assets/covers/endslate.webp"
   },
   {
     slug: "ffmpeg-forge", name: "FFMPEG-Forge",
@@ -77,7 +77,7 @@ window.PROJECTS = [
     about: "Drop files in, pick a task, press Render. Convert, compress to a size target with real two-pass encodes, extract audio, and batch photo tasks, all from one queue.",
     category: "desktop", platform: "Windows", tech: ["Python", "PySide6", "ffmpeg"],
     repo: "SwikrutD/FFMPEG-Forge", releases: true,
-    icon: "fa-solid fa-wand-magic-sparkles", accent: "#22c55e"
+    icon: "fa-solid fa-wand-magic-sparkles", accent: "#22c55e", image: "assets/covers/ffmpeg-forge.webp"
   },
   {
     slug: "neckflow", name: "NeckFlow",
@@ -85,7 +85,7 @@ window.PROJECTS = [
     about: "An offline tray utility that pops up a small bottom-right window with a native WPF 3D mannequin, instructions and a live countdown.",
     category: "desktop", platform: "Windows", tech: ["C#", ".NET 8", "WPF 3D"],
     repo: "SwikrutD/NeckFlow", releases: true,
-    icon: "fa-solid fa-person-walking", accent: "#14b8a6"
+    icon: "fa-solid fa-person-walking", accent: "#14b8a6", image: "assets/covers/neckflow.webp"
   },
   {
     slug: "battery-widget", name: "Battery Widget",
@@ -93,7 +93,7 @@ window.PROJECTS = [
     about: "Reads mice, headsets, keyboards and controllers from the apps that already manage them (Logi Bolt over HID++, G HUB, SteelSeries GG, DualSense) and shows them as rings on the desktop and in a tray flyout.",
     category: "desktop", platform: "Windows", tech: ["Electron", "Node.js", "HID++", "WebSockets"],
     repo: "SwikrutD/BatteryWidget",
-    icon: "fa-solid fa-battery-three-quarters", accent: "#4ade80"
+    icon: "fa-solid fa-battery-three-quarters", accent: "#4ade80", image: "assets/covers/battery-widget.webp"
   },
   {
     slug: "clickthis", name: "ClickThis CT-808",
@@ -101,7 +101,7 @@ window.PROJECTS = [
     about: "Each click is a step on a TR-808-style sequencer, the wait before each step is the rhythm, and a green phosphor scope shows where each click lands. Record takes, swing the timing, add human jitter.",
     category: "desktop", platform: "Windows", tech: ["Python", "pywebview", "JavaScript"],
     repo: "SwikrutD/ClickThis", releases: true,
-    icon: "fa-solid fa-computer-mouse", accent: "#fb923c"
+    icon: "fa-solid fa-computer-mouse", accent: "#fb923c", image: "assets/covers/clickthis.webp"
   },
   {
     slug: "strata", name: "Strata",
@@ -109,7 +109,7 @@ window.PROJECTS = [
     about: "Indexes every Claude Code conversation on your machine into SQLite and shows usage limits, burn rate, projects, tools and edits, with a tray companion.",
     category: "desktop", platform: "Windows", tech: ["Python", "SQLite", "C#"],
     repo: "SwikrutD/Strata", releases: true,
-    icon: "fa-solid fa-layer-group", accent: "#c084fc"
+    icon: "fa-solid fa-layer-group", accent: "#c084fc", image: "assets/covers/strata.webp"
   },
   {
     slug: "fuzzyclock", name: "FuzzyClock",
@@ -117,7 +117,7 @@ window.PROJECTS = [
     about: "Three procedurally drawn monsters (Pinky, Mossy and Frosty) hold a clock and blink every few seconds. Mossy's eye follows the second hand.",
     category: "desktop", platform: "Windows", tech: ["C#", ".NET 8", "WPF"],
     repo: "SwikrutD/FuzzyClock", releases: true,
-    icon: "fa-solid fa-clock", accent: "#f472b6"
+    icon: "fa-solid fa-clock", accent: "#f472b6", image: "assets/covers/fuzzyclock.webp"
   },
   {
     slug: "screensavers", name: "Borealis & Nocturne",
@@ -125,7 +125,7 @@ window.PROJECTS = [
     about: "Borealis ripples northern lights over a mountain lake; Nocturne shows the moon in its real current phase. Both stay dim and drift slowly to avoid burn-in.",
     category: "desktop", platform: "Windows", tech: ["C#", "WinForms", "GDI+"],
     repo: "SwikrutD/Screensavers", releases: true,
-    icon: "fa-solid fa-moon", accent: "#6366f1"
+    icon: "fa-solid fa-moon", accent: "#6366f1", image: "assets/covers/screensavers.webp"
   },
   {
     slug: "streamdock-plugins", name: "Stream Dock plugins",
@@ -133,7 +133,7 @@ window.PROJECTS = [
     about: "Keyboard battery, Claude usage, display resolution switching and VPN status keys, plus a small SDK and CLI for scaffolding, syncing and packing new plugins.",
     category: "desktop", platform: "Windows", tech: ["Node.js", "WebSockets", "SVG"],
     repo: "SwikrutD/StreamDock-Plugins",
-    icon: "fa-solid fa-table-cells", accent: "#94a3b8"
+    icon: "fa-solid fa-table-cells", accent: "#94a3b8", image: "assets/covers/streamdock-plugins.webp"
   },
 
   // -------------------------------------------------------------------- games
@@ -151,7 +151,7 @@ window.PROJECTS = [
     about: "Pick a T-rex, a velociraptor or a triceratops, outrun cacti and pterodactyls, chase a caveman who throws things back, and survive meteor showers. 19 trophies, 10 of them secret. Every model and sound is generated in code.",
     category: "games", platform: "Browser", tech: ["Three.js", "Vite", "Node.js"],
     repo: "SwikrutD/rex-chase", demo: "https://rex.swikrut.com", badge: "live",
-    icon: "fa-solid fa-person-running", accent: "#84cc16"
+    icon: "fa-solid fa-person-running", accent: "#84cc16", image: "assets/covers/rex-chase.webp"
   },
   {
     slug: "spaghettify", name: "Spaghettify",
@@ -159,7 +159,7 @@ window.PROJECTS = [
     about: "Start pea-sized in a shared arena and swallow dust, asteroids, moons, planets and other players. Drop in, grow, get spaghettified.",
     category: "games", platform: "Browser", tech: ["TypeScript", "Canvas", "WebSockets", "Docker"],
     repo: "SwikrutD/spaghettify", demo: "https://spaghettify.swikrut.com", badge: "live",
-    icon: "fa-solid fa-circle-half-stroke", accent: "#8b5cf6"
+    icon: "fa-solid fa-circle-half-stroke", accent: "#8b5cf6", image: "assets/covers/spaghettify.webp"
   },
   {
     slug: "wordle-duel", featured: true, name: "Wordle-Duel",
@@ -167,7 +167,7 @@ window.PROJECTS = [
     about: "Head-to-head Wordle over WebSockets with sub-100ms message latency, self-hosted on a home server.",
     category: "games", platform: "Browser", tech: ["Node.js", "Socket.io", "Docker"],
     repo: "SwikrutD/wordle-duel", demo: "https://wordlevs.swikrut.com", badge: "live",
-    icon: "fa-solid fa-spell-check", accent: "#22c55e", image: "assets/covers/wordleduel.webp"
+    icon: "fa-solid fa-spell-check", accent: "#22c55e", image: "assets/covers/wordle-duel.webp"
   },
 
   // ------------------------------------------------------------------ android
@@ -185,7 +185,7 @@ window.PROJECTS = [
     about: "Draws a clean location card (address, coordinates, optional date and notes) onto each photo and writes GPS into the EXIF. No account, no ads, no API keys.",
     category: "android", platform: "Android", tech: ["Kotlin", "CameraX", "Fused Location"],
     repo: "SwikrutD/SWID-GPSCamera", releases: true,
-    icon: "fa-solid fa-location-dot", accent: "#0f766e"
+    icon: "fa-solid fa-location-dot", accent: "#0f766e", image: "assets/covers/swid-gps-camera.webp"
   },
 
   // ---------------------------------------------------------------------- web
@@ -211,7 +211,7 @@ window.PROJECTS = [
     about: "A weighted rule engine classifies application mail (acknowledgements, rejections, interviews, expiring assessments) and folds it into a stage machine. No LLM, no API cost, works offline.",
     category: "web", platform: "Windows / local web app", tech: ["Python", "SQLite", "Gmail API"],
     repo: "SwikrutD/Hiresight", releases: true,
-    icon: "fa-solid fa-binoculars", accent: "#06b6d4"
+    icon: "fa-solid fa-binoculars", accent: "#06b6d4", image: "assets/covers/hiresight.webp"
   },
   {
     slug: "dojo", name: "Dojo",
@@ -219,7 +219,7 @@ window.PROJECTS = [
     about: "Practise coding problems against real judges in Python, JavaScript and Java, see how your solution scales, keep it fresh with spaced repetition, and rehearse mock interviews, system design and behavioral stories.",
     category: "web", platform: "Windows / local web app", tech: ["Python", "JavaScript", "Spaced repetition"],
     repo: "SwikrutD/Dojo", releases: true,
-    icon: "fa-solid fa-torii-gate", accent: "#dc2626"
+    icon: "fa-solid fa-torii-gate", accent: "#dc2626", image: "assets/covers/dojo.webp"
   },
   {
     slug: "focus-garden", name: "Focus Garden",
@@ -227,7 +227,7 @@ window.PROJECTS = [
     about: "Each finished session plants a flower labelled with your task. Rain and soft music are synthesized in the browser. One HTML file, no dependencies.",
     category: "web", platform: "Browser", tech: ["HTML", "Canvas", "Web Audio"],
     repo: "SwikrutD/focus-garden", demo: "https://swikrut.com/focus-garden/", badge: "live",
-    icon: "fa-solid fa-seedling", accent: "#65a30d"
+    icon: "fa-solid fa-seedling", accent: "#65a30d", image: "assets/covers/focus-garden.webp"
   },
 
 
