@@ -108,7 +108,7 @@ window.PROJECTS = [
     tagline: "A local observatory for your Claude Code history.",
     about: "Indexes every Claude Code conversation on your machine into SQLite and shows usage limits, burn rate, projects, tools and edits, with a tray companion.",
     category: "desktop", platform: "Windows", tech: ["Python", "SQLite", "C#"],
-    repo: "SwikrutD/Strata",
+    repo: "SwikrutD/Strata", releases: true,
     icon: "fa-solid fa-layer-group", accent: "#c084fc"
   },
   {
@@ -209,16 +209,16 @@ window.PROJECTS = [
     slug: "hiresight", name: "Hiresight",
     tagline: "A job-search pipeline tracker that builds itself from your inbox.",
     about: "A weighted rule engine classifies application mail (acknowledgements, rejections, interviews, expiring assessments) and folds it into a stage machine. No LLM, no API cost, works offline.",
-    category: "web", platform: "Local web app", tech: ["Python", "SQLite", "Gmail API"],
-    repo: "SwikrutD/Hiresight",
+    category: "web", platform: "Windows / local web app", tech: ["Python", "SQLite", "Gmail API"],
+    repo: "SwikrutD/Hiresight", releases: true,
     icon: "fa-solid fa-binoculars", accent: "#06b6d4"
   },
   {
     slug: "dojo", name: "Dojo",
     tagline: "An offline interview training studio.",
     about: "Practise coding problems against real judges in Python, JavaScript and Java, see how your solution scales, keep it fresh with spaced repetition, and rehearse mock interviews, system design and behavioral stories.",
-    category: "web", platform: "Local web app", tech: ["Python", "JavaScript", "Spaced repetition"],
-    repo: "SwikrutD/Dojo",
+    category: "web", platform: "Windows / local web app", tech: ["Python", "JavaScript", "Spaced repetition"],
+    repo: "SwikrutD/Dojo", releases: true,
     icon: "fa-solid fa-torii-gate", accent: "#dc2626"
   },
   {
@@ -226,7 +226,7 @@ window.PROJECTS = [
     tagline: "A focus timer that grows a garden of what you got done.",
     about: "Each finished session plants a flower labelled with your task. Rain and soft music are synthesized in the browser. One HTML file, no dependencies.",
     category: "web", platform: "Browser", tech: ["HTML", "Canvas", "Web Audio"],
-    repo: "SwikrutD/focus-garden",
+    repo: "SwikrutD/focus-garden", demo: "https://swikrut.com/focus-garden/", badge: "live",
     icon: "fa-solid fa-seedling", accent: "#65a30d"
   },
 
