@@ -6,7 +6,7 @@
    name       display name
    tagline    one line, shown on the card
    about      2-3 sentences, shown on the page (and instead of the README for private repos)
-   category   games | desktop | android | web | hardware | ml
+   category   games | desktop | android | web | ml
    platform   short label, e.g. "Windows", "Browser", "Android"
    tech       stack chips
    repo       "owner/name" on GitHub, or null
@@ -14,6 +14,7 @@
    demo       URL of a live version, if any (demoLabel overrides the button text)
    download   URL of an external download page (e.g. itch.io), used instead of GitHub Releases
    releases   true if downloads are published as GitHub Releases on `repo`
+   featured   true to include in the homepage carousel (in this order)
    badge      optional: "new" | "live" | "wip"
    icon       Font Awesome class for the generated cover
    accent     cover colour
@@ -25,14 +26,13 @@ window.CATEGORIES = {
   desktop:  { label: "Desktop apps",     icon: "fa-solid fa-display" },
   android:  { label: "Android",          icon: "fa-brands fa-android" },
   web:      { label: "Web & self-hosted", icon: "fa-solid fa-globe" },
-  hardware: { label: "Hardware",         icon: "fa-solid fa-microchip" },
   ml:       { label: "ML & data",        icon: "fa-solid fa-brain" }
 };
 
 window.PROJECTS = [
   // ------------------------------------------------------------------ desktop
   {
-    slug: "yt-game-pauser", name: "YT Game Pauser",
+    slug: "yt-game-pauser", featured: true, name: "YT Game Pauser",
     tagline: "Pauses YouTube when your game starts talking, and resumes when the dialogue stops.",
     about: "Listens only to the game's own audio, so the video never triggers itself. Spotify can be paused or ducked too. No injection or memory reading, just the Windows audio and media APIs, so it's safe with anti-cheat.",
     category: "desktop", platform: "Windows", tech: ["Python", "PySide6", "ONNX Runtime", "WinRT Media APIs"],
@@ -40,7 +40,7 @@ window.PROJECTS = [
     icon: "fa-solid fa-circle-pause", accent: "#ef4444"
   },
   {
-    slug: "erdle", name: "ERDLE",
+    slug: "erdle", featured: true, name: "ERDLE",
     tagline: "Elden Ring boss overlay: what works, what doesn't, and the poise threshold.",
     about: "Reads the boss name from the screen when a fight starts and shows a compact state sheet. Can also drive the OLED screen on SteelSeries keyboards. No install, no Python needed.",
     category: "desktop", platform: "Windows", tech: ["Python", "OCR", "Tesseract", "SteelSeries GG"],
@@ -48,7 +48,7 @@ window.PROJECTS = [
     icon: "fa-solid fa-dragon", accent: "#d4a017", image: "assets/covers/erdle.webp"
   },
   {
-    slug: "paperforge", name: "PaperForge",
+    slug: "paperforge", featured: true, name: "PaperForge",
     tagline: "An offline-first PDF workspace for Windows.",
     about: "Read, annotate, organize, edit, OCR, convert, protect and redact PDFs on your own machine, with no account, no telemetry and no cloud services.",
     category: "desktop", platform: "Windows", tech: ["Electron", "React", "TypeScript", "PDF.js"],
@@ -104,14 +104,6 @@ window.PROJECTS = [
     icon: "fa-solid fa-computer-mouse", accent: "#fb923c"
   },
   {
-    slug: "murmur", name: "Murmur",
-    tagline: "Hold a key, talk, release: local dictation into any window.",
-    about: "Transcribes with whisper.cpp, cleans the text up with an LLM and types it into whatever has focus. No account, no telemetry, no network calls unless you configure them.",
-    category: "desktop", platform: "Windows", tech: ["Python", "whisper.cpp", "Local LLM"],
-    repo: "SwikrutD/Murmur",
-    icon: "fa-solid fa-microphone-lines", accent: "#38bdf8"
-  },
-  {
     slug: "strata", name: "Strata",
     tagline: "A local observatory for your Claude Code history.",
     about: "Indexes every Claude Code conversation on your machine into SQLite and shows usage limits, burn rate, projects, tools and edits, with a tray companion.",
@@ -146,7 +138,7 @@ window.PROJECTS = [
 
   // -------------------------------------------------------------------- games
   {
-    slug: "lumenfall", name: "Lumenfall",
+    slug: "lumenfall", featured: true, name: "Lumenfall",
     tagline: "A lantern, fifteen minutes, and everything coming for you.",
     about: "A survivors-style action game: weapons fire on their own, you move and pick upgrades, and try to reach sunrise. Everything is drawn and synthesized at runtime, with full controller support.",
     category: "games", platform: "Browser, Windows, Linux", tech: ["JavaScript", "Canvas", "Web Audio", "Electron"],
@@ -154,7 +146,7 @@ window.PROJECTS = [
     icon: "fa-solid fa-fire-flame-curved", accent: "#f59e0b", image: "assets/covers/lumenfall.webp"
   },
   {
-    slug: "rex-chase", name: "Rex Chase",
+    slug: "rex-chase", featured: true, name: "Rex Chase",
     tagline: "A 3D dinosaur runner with trophies and a global leaderboard.",
     about: "Pick a T-rex, a velociraptor or a triceratops, outrun cacti and pterodactyls, chase a caveman who throws things back, and survive meteor showers. 19 trophies, 10 of them secret. Every model and sound is generated in code.",
     category: "games", platform: "Browser", tech: ["Three.js", "Vite", "Node.js"],
@@ -170,23 +162,7 @@ window.PROJECTS = [
     icon: "fa-solid fa-circle-half-stroke", accent: "#8b5cf6"
   },
   {
-    slug: "tenant-of-bones", name: "Tenant of Bones",
-    tagline: "A turn-based roguelike where you wear the dead, and the dead rot.",
-    about: "Every body you wear is your class, your resource and your clock at once. There is no HP: damage is rot. When a body gives out you have three turns to find another.",
-    category: "games", platform: "Browser", tech: ["TypeScript", "Vite", "Vitest"],
-    repo: "SwikrutD/TenantOfBones", badge: "wip",
-    icon: "fa-solid fa-skull", accent: "#e76f51", image: "assets/covers/tenantofbones.webp"
-  },
-  {
-    slug: "asterion", name: "ASTERION",
-    tagline: "A cinematic space observatory and physics playground.",
-    about: "Explore a procedural universe, play with orbits, and build your own worlds. Original procedural graphics and synthesized audio, with no installs, accounts or downloaded textures.",
-    category: "games", platform: "Browser", tech: ["JavaScript", "WebGL", "Web Audio"],
-    repo: "SwikrutD/Asterion", releases: true,
-    icon: "fa-solid fa-meteor", accent: "#0ea5e9"
-  },
-  {
-    slug: "wordle-duel", name: "Wordle-Duel",
+    slug: "wordle-duel", featured: true, name: "Wordle-Duel",
     tagline: "Real-time PvP Wordle where you pick your opponent's word.",
     about: "Head-to-head Wordle over WebSockets with sub-100ms message latency, self-hosted on a home server.",
     category: "games", platform: "Browser", tech: ["Node.js", "Socket.io", "Docker"],
@@ -196,7 +172,7 @@ window.PROJECTS = [
 
   // ------------------------------------------------------------------ android
   {
-    slug: "swidscanner", name: "SwidScanner",
+    slug: "swidscanner", featured: true, name: "SwidScanner",
     tagline: "A document scanner with no account, no ads and no cloud.",
     about: "Live page detection, auto-capture, batch and book modes, OCR, smart naming from the page text, PDF import, signing and stamping. Everything runs on the phone.",
     category: "android", platform: "Android", tech: ["Kotlin", "CameraX", "ML Kit", "OpenCV"],
@@ -214,7 +190,7 @@ window.PROJECTS = [
 
   // ---------------------------------------------------------------------- web
   {
-    slug: "clipsync", name: "ClipSync",
+    slug: "clipsync", featured: true, name: "ClipSync",
     tagline: "End-to-end encrypted clipboard and file sync between your devices.",
     about: "Self-hosted, no accounts, no app store. AES-256-GCM encryption happens on the device before anything leaves it.",
     category: "web", platform: "Browser / PWA", tech: ["Node.js", "Socket.io", "Web Crypto API", "PWA"],
@@ -228,14 +204,6 @@ window.PROJECTS = [
     category: "web", platform: "Browser", tech: ["React", "TypeScript", "Fastify", "Prisma", "PostgreSQL"],
     repo: null, demo: "https://tv.fintu.uk", badge: "live",
     icon: "fa-solid fa-tv", accent: "#ef4444", image: "assets/covers/bingecheck.webp"
-  },
-  {
-    slug: "eatplanner", name: "EatPlanner",
-    tagline: "A self-hosted meal planner, shopping list and household hub.",
-    about: "Save recipes, drag them onto a meal calendar, generate a shopping list, and share or print the plan. Also covers chores, events, pantry inventory and photos. Runs on your own machine and works offline.",
-    category: "web", platform: "Self-hosted", tech: ["Next.js", "TypeScript", "SQLite", "Drizzle", "Docker"],
-    repo: "SwikrutD/meal-planner",
-    icon: "fa-solid fa-utensils", accent: "#f97316"
   },
   {
     slug: "hiresight", name: "Hiresight",
@@ -262,15 +230,6 @@ window.PROJECTS = [
     icon: "fa-solid fa-seedling", accent: "#65a30d"
   },
 
-  // ----------------------------------------------------------------- hardware
-  {
-    slug: "esp32-remote", name: "ESP32 Remote",
-    tagline: "Control your PC from your phone through an ESP32 Bluetooth keyboard.",
-    about: "The PC pairs with the ESP32 as a BLE keyboard; your phone connects to the same board from a web page and sends commands, which become keystrokes. Touch a pin to lock the PC, press BOOT to play/pause.",
-    category: "hardware", platform: "ESP32", tech: ["C++", "Arduino", "NimBLE", "Web Bluetooth"],
-    repo: "SwikrutD/esp32-remote",
-    icon: "fa-brands fa-bluetooth-b", accent: "#2563eb"
-  },
 
   // ----------------------------------------------------------------------- ml
   {

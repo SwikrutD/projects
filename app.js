@@ -52,17 +52,47 @@
     ].map(([v, l]) => `<div><b>${v}</b><span>${l}</span></div>`).join("");
   }
 
-  function renderSpotlight() {
-    const p = PROJECTS.find((x) => x.badge === "new") || PROJECTS[0];
-    if (!p) return;
-    const el = $("#spotlight");
-    el.href = `#/${p.slug}`;
-    el.innerHTML = `${cover(p, true)}
-      <div class="spot-body">
-        <div class="spot-label"><i class="fa-solid fa-star"></i> Latest project</div>
-        <h2>${esc(p.name)}</h2>
-        <p>${esc(p.tagline)}</p>
-      </div>`;
+  function renderCarousel() {
+    const items = PROJECTS.filter((p) => p.featured);
+    const root = $("#carousel"), track = $("#car-track"), dots = $("#car-dots");
+    if (!items.length) { root.hidden = true; return; }
+    track.innerHTML = items.map((p, i) => `
+      <a class="slide" href="#/${esc(p.slug)}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${items.length}: ${esc(p.name)}">
+        ${cover(p, i === 0)}
+        <div class="slide-body">
+          <span class="slide-cat"><i class="${esc(CATS[p.category]?.icon || "")}"></i>${esc(CATS[p.category]?.label || "")}</span>
+          <h2>${esc(p.name)}</h2>
+          <p>${esc(p.tagline)}</p>
+        </div>
+      </a>`).join("");
+    dots.innerHTML = items.map((p, i) => `<button type="button" role="tab" aria-label="${esc(p.name)}" data-i="${i}"></button>`).join("");
+
+    let idx = 0, timer = null;
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const go = (i, smooth = true) => {
+      idx = (i + items.length) % items.length;
+      track.scrollTo({ left: idx * track.clientWidth, behavior: smooth && !reduced ? "smooth" : "auto" });
+      mark();
+    };
+    const mark = () => dots.querySelectorAll("button").forEach((d, i) => d.setAttribute("aria-selected", i === idx));
+    const stop = () => { clearInterval(timer); timer = null; };
+    const start = () => { if (!reduced && !timer) timer = setInterval(() => go(idx + 1), 5500); };
+
+    $(".car-btn.prev", root).addEventListener("click", () => { stop(); go(idx - 1); });
+    $(".car-btn.next", root).addEventListener("click", () => { stop(); go(idx + 1); });
+    dots.addEventListener("click", (e) => { const b = e.target.closest("[data-i]"); if (b) { stop(); go(+b.dataset.i); } });
+    let raf;
+    track.addEventListener("scroll", () => {   // keep dots in sync with swipes
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => { const i = Math.round(track.scrollLeft / track.clientWidth); if (i !== idx) { idx = i; mark(); } });
+    }, { passive: true });
+    root.addEventListener("pointerenter", stop);
+    root.addEventListener("pointerleave", start);
+    root.addEventListener("focusin", stop);
+    root.addEventListener("touchstart", stop, { passive: true });
+    window.addEventListener("resize", () => go(idx, false));
+    document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
+    mark(); start();
   }
 
   function renderTabs() {
@@ -272,5 +302,5 @@
   window.addEventListener("hashchange", route);
 
   $("#year").textContent = new Date().getFullYear();
-  renderStats(); renderSpotlight(); renderTabs(); renderList(); route();
+  renderStats(); renderCarousel(); renderTabs(); renderList(); route();
 })();
