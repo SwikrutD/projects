@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects - Swikrut Dhanorkar</title>
+<meta name="description" content="Everything Swikrut Dhanorkar has built: full-stack apps, ML systems, games, desktop tools, and small utilities.">
+<meta property="og:title" content="Projects - Swikrut Dhanorkar">
+<meta property="og:description" content="Everything I've built: apps, ML systems, games, tools and small utilities.">
+<meta property="og:url" content="https://projects.swikrut.com/">
+<link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Shared design system from the main site, so both stay in sync -->
+<link href="https://swikrut.com/style.css" rel="stylesheet">
+<link href="archive.css" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/b6a44dc56a.js" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCMTC6HS8X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VCMTC6HS8X');
+</script>
+</head>
+<body>
+
+<div class="grid-bg" aria-hidden="true"></div>
+<div class="scanline" aria-hidden="true"></div>
+
+<header id="site-header">
+  <a href="https://swikrut.com" class="logo-mark">
+    <img src="./assets/logo.png" alt="Swikrut Dhanorkar logo">
+  </a>
+  <nav class="archive-nav" aria-label="Primary">
+    <a href="https://swikrut.com">home</a>
+    <a href="https://swikrut.com/#contact">contact</a>
+    <a href="https://github.com/SwikrutD" target="_blank" rel="noopener">github</a>
+  </nav>
+</header>
+
+<main>
+  <section class="archive-hero">
+    <div class="eyebrow"><span class="status-dot"></span>projects.swikrut.com</div>
+    <h1>everything i've <span>built</span></h1>
+    <p class="role-line">Apps, ML systems, games, desktop tools and small utilities: the full list, including the ones too small for the homepage.</p>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="archive-body">
+    <div class="toolbar dash-panel" data-title="QUERY: /projects">
+      <label class="search">
+        <span aria-hidden="true">$ grep</span>
+        <input id="search" type="search" placeholder="search name, stack, description..." autocomplete="off" aria-label="Search projects">
+      </label>
+      <div class="chip-row" id="status-chips" role="group" aria-label="Filter by status"></div>
+      <div class="chip-row tags" id="tag-chips" role="group" aria-label="Filter by tag"></div>
+    </div>
+
+    <p class="result-count" id="result-count" aria-live="polite"></p>
+    <div class="archive-grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>// no projects match that query</p>
+  </section>
+</main>
+
+<footer class="archive-footer">
+  <a href="https://swikrut.com">~/swikrut.com</a>
+  <span>&copy; <span id="year"></span> Swikrut Dhanorkar</span>
+</footer>
+
+<div id="toast" role="status"></div>
+
+<script src="projects.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
